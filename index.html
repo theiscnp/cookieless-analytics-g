@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Site</title>
+</head>
+<body>
+
+	<script>
+		
+		function makeid(length) {  length = (typeof length === 'integer') ? length : 30 ;
+			var result='',chars='ABCDEFGHIJKLMNOUVWXYZabcdefghijklmnopquvwxyz0123456789';
+			for (var i=0;i<length;i++)result+=chars.charAt(Math.floor(Math.random()*62));
+			return result;
+		}
+	</script>
+
+	<script>
+		(function(){
+
+			var w = window; w.GoogleAnalyticsObject = 'ga';
+		
+			if(!w.ga) w.ga = ()=>(w['ga'].q=w['ga'].q||[]).push(arguments)
+		
+			w['ga'] = w['ga']||function(){(w['ga'].q=w['ga'].q||[]).push(arguments)}
+
+			w['ga'].l = (new Date()).getTime();
+
+			var a = document.createElement('script');
+
+			a.async = 1;
+
+			a.src = 'https://www.google-analytics.com/analytics.js';
+
+
+			var m = document.getElementsByTagName('script')[0];
+
+			m.parentNode.insertBefore( a, m )
+
+		})();
+
+		var GA_LOCAL_STORAGE_KEY = 'ga:clientId18';
+
+		if (window.localStorage)
+		{
+			ga('create', 'UA-183515938-3', {
+				storage: 'none',
+				clientId: localStorage.getItem(GA_LOCAL_STORAGE_KEY)
+			});
+			
+			ga(function(tracker) {
+				localStorage.setItem(GA_LOCAL_STORAGE_KEY, tracker.get('clientId'));
+			});
+
+			ga('send', 'pageview');
+		}
+	</script>
+
+	<p>
+		Some site contents here
+	</p>
+
+</body>
+</html>
